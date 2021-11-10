@@ -12,39 +12,51 @@ searchButton.addEventListener("click", findCity)
 
 function findCity() {
     var citySearch = cityInput.value
-    
+    document.getElementById("infoBox").innerHTML = ""
+    document.getElementById("infoBox1").innerHTML = ""
+    document.getElementById("infoBox2").innerHTML = ""
+    document.getElementById("infoBox3").innerHTML = ""
+    document.getElementById("infoBox4").innerHTML = ""
+    document.getElementById("infoBox5").innerHTML = ""
+
     fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&units=imperial&appid=" + apiKey)
     .then(response => response.json())
     .then(data => {
         console.log(data)
+        var cityIcon = document.createElement("h1")
         var cityName = document.createElement("h1")
         var cityTemp = document.createElement("h3")
         var cityWind = document.createElement("h3")
         var cityHumidity = document.createElement("h3")
 
+        //cityIcon.innerText = data.list[0].weather[0].icon
         cityName.innerText = data.city.name
         console.log(m.format("MMMM Do YYYY"))
         cityTemp.innerText = data.list[0].main.temp + " °F"
         cityWind.innerText = data.list[0].wind.speed + " MPH"
         cityHumidity.innerText = data.list[0].main.humidity + " %"
 
+        document.querySelector("#infoBox").appendChild(cityIcon)
         document.querySelector("#infoBox").appendChild(cityName)
         document.querySelector("#infoBox").appendChild(cityTemp)
         document.querySelector("#infoBox").appendChild(cityWind)
         document.querySelector("#infoBox").appendChild(cityHumidity)
     
         //var cityName1 = document.createElement("h1")
+        //var cityIcon1 = document.createElement("h5")
         var cityTemp1 = document.createElement("h5")
         var cityWind1 = document.createElement("h5")
         var cityHumidity1 = document.createElement("h5")
 
         //cityName1.innerText = data.city.name
+        //cityIcon1.innerText = data.list[7].weather[7].icon
         console.log(m1.format("MMMM Do YYYY"))
         cityTemp1.innerText = data.list[7].main.temp + " °F"
         cityWind1.innerText = data.list[7].wind.speed + " MPH"
         cityHumidity1.innerText = data.list[7].main.humidity + " %"
 
         //document.querySelector("#infoBox1").appendChild(cityName1)
+        //document.querySelector("#infoBox1").appendChild(cityIcon1)
         document.querySelector("#infoBox1").appendChild(cityTemp1)
         document.querySelector("#infoBox1").appendChild(cityWind1)
         document.querySelector("#infoBox1").appendChild(cityHumidity1)
