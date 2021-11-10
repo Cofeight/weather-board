@@ -1,6 +1,12 @@
 var apiKey = "bf93e30fb6366640ed7b651b24b47a40";
+var cityInput = document.querySelector("#city-input");
+var searchButton = document.querySelector("#search-button")
 
-fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + "Seattle" + "&units=imperial&appid=" + apiKey)
+searchButton.addEventListener("click", findCity)
+
+function findCity() {
+    var citySearch = cityInput.value
+    fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&units=imperial&appid=" + apiKey)
     .then(response => response.json())
 
     .then(data => {
@@ -102,5 +108,4 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + "Seattle" + "&unit
         document.querySelector("#infoBox5").appendChild(cityHumidity5)
         console.log("Day 5 Weather")
     })
-
-    
+}
