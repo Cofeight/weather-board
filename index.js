@@ -128,24 +128,26 @@ function findCity() {
     })
 }
 
+function cityResults () {
+    var results = localStorage.getItem("city-input");
+    console.log(localStorage);
+    cityResults.textContent = (resultsButton);
+    console.log(resultsButton.value);
+}
 
-//function cityResults () {
-//    console.log("testing city results 1.0")
-//    //console logs our first test
-//    var results = localStorage.getItem("city-input");
-//    console.log(localStorage);
-//    searchResults.textContent = "";
-//    console.log("last city displayed");
-//}
-//
-//searchButton.addEventListener("click", function(event) {
-//    event.preventDefault();
-//
-//    var citySearch = document.querySelector("#city-input").value;
-//    localStorage.setItem("results-button", cityInput)
-//    cityResults();
-//})    
+searchButton.addEventListener("click", function(event) {
+    event.preventDefault();
 
+    var citySearch = document.querySelector("#city-input").value;
+    localStorage.setItem("results-button", citySearch)
+
+
+
+    for (var i = 0; i < localStorage.length; i++){
+        const key = localStorage.key(i);
+        console.log(`${key}: ${localStorage.getItem(key)}`);
+    }    
+})    
 
 //function cityUV () {
 //    console.log("testing UV");
