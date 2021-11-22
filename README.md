@@ -6,7 +6,7 @@
 
 
 ## Description
-    An application to find a city's current weather. Additionally, a 5-day forecast will also be displayed for this city.
+An application to find a city's current weather. Additionally, a 5-day forecast will also be displayed for this city.
 
 ## Table of Contents
 
